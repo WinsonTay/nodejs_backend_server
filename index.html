@@ -1,0 +1,26 @@
+<!DOCTYPE html>   
+<head>
+
+</head>
+
+<body>
+    <h1>Welcome to Quote Web</h1>
+    <h3>Quote</h3>
+    <p class ="quote">Loading..</p>
+
+    <h3>Submit Your New Quote</h3>
+    <form action="http://127.0.0.1:3000/quotes/submit" method="POST">
+        <label for="quote-field">Quote:</label>
+        <input type="quote-field"  name="quote"><br><br>
+        <button type ="submit"> Submit</button>
+    </form>
+
+    <script type='text/javascript'>
+        fetch('http://127.0.0.1:3000/quotes/random').then(function(response){ 
+            return response.json()
+        }).then(function(body){
+            console.log(body)
+            document.querySelector(".quote").innerHTML  = body.quote;
+        });
+    </script>
+</body>
